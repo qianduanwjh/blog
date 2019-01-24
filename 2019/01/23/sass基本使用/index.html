@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>sass基本使用 | blog of Wjh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一. 变量 sass的变量名必须是一个$符号开头，后面紧跟变量名123456789//sass 样式$red: #f00;div &amp;#123;   color: $red;   &amp;#125;// 编译为css后div &amp;#123;    color:#f00;   &amp;#125; 特殊变量  如果变量嵌套在字符串中，则需要写在 #{} 符号里面，如：1234$top: top;div &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass基本使用">
+<meta property="og:url" content="http://yoursite.com/2019/01/23/sass基本使用/index.html">
+<meta property="og:site_name" content="blog of Wjh">
+<meta property="og:description" content="一. 变量 sass的变量名必须是一个$符号开头，后面紧跟变量名123456789//sass 样式$red: #f00;div &amp;#123;   color: $red;   &amp;#125;// 编译为css后div &amp;#123;    color:#f00;   &amp;#125; 特殊变量  如果变量嵌套在字符串中，则需要写在 #{} 符号里面，如：1234$top: top;div &amp;#123;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-23T13:27:34.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sass基本使用">
+<meta name="twitter:description" content="一. 变量 sass的变量名必须是一个$符号开头，后面紧跟变量名123456789//sass 样式$red: #f00;div &amp;#123;   color: $red;   &amp;#125;// 编译为css后div &amp;#123;    color:#f00;   &amp;#125; 特殊变量  如果变量嵌套在字符串中，则需要写在 #{} 符号里面，如：1234$top: top;div &amp;#123;">
+  
+    <link rel="alternate" href="/atom.xml" title="blog of Wjh" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">blog of Wjh</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sass基本使用" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/sass基本使用/" class="article-date">
+  <time datetime="2019-01-23T12:53:07.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sass基本使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一-变量"><a href="#一-变量" class="headerlink" title="一. 变量"></a>一. 变量</h3><p> sass的变量名必须是一个$符号开头，后面紧跟变量名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//sass 样式</span><br><span class="line">$red: #f00;</span><br><span class="line">div &#123;</span><br><span class="line">   color: $red;   </span><br><span class="line">&#125;</span><br><span class="line">// 编译为css后</span><br><span class="line">div &#123;</span><br><span class="line">    color:#f00;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>特殊变量</strong><br>  如果变量嵌套在字符串中，则需要写在 #{} 符号里面，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$top: top;</span><br><span class="line">div &#123;</span><br><span class="line">    margin-#&#123;$top&#125;: 10px;       /* margin-top: 10px; */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>默认变量</strong><br>仅需在值后面加入 !default即可， 默认变量一般用来设置默认值，当该变量出现另外一个值时，无论定义先后，都会使用另外一个值，覆盖默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$color: red;</span><br><span class="line">$color: blue !default;</span><br><span class="line">div &#123;</span><br><span class="line">    color: $color;    /* color:red; */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>多值变量</strong><br>多值变量分为list类型和map类型，list有点像js对象中的数组，map类型像js中的对象<br> 可通过空格，逗号或小括号分割多个值，使用 nth($变量名, $索引)取值。 list数据操作有其他函数<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//一维数据</span><br><span class="line">$px: 5px 10px 20px 30px;</span><br><span class="line"></span><br><span class="line">//二维数据，相当于js中的二维数组</span><br><span class="line">$px: 5px 10px, 20px 30px;</span><br><span class="line">$px: (5px 10px) (20px 30px);</span><br><span class="line"></span><br><span class="line">// 例子</span><br><span class="line">$px: 10px 20px;</span><br><span class="line">div &#123;</span><br><span class="line">    margin:nth($px, 1) 0 0 nth($px, 2);    /* margin:10px 0 0 20px; */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>map</strong><br>数据以key和value组成，格式：$map: (key1: value1, key2: value2); 通过map-get($map, $key);<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$headings: (h1: 2em, h2: 1.5em, h3: 1.2em);</span><br><span class="line">@each $header, $size in $headings &#123;</span><br><span class="line">  #&#123;$header&#125; &#123;</span><br><span class="line">    font-size: $size;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="二-计算功能"><a href="#二-计算功能" class="headerlink" title="二. 计算功能"></a>二. 计算功能</h3><p>sass可以使用算式<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    padding: 2px * 4px;</span><br><span class="line">    margin: (10px / 2);</span><br><span class="line">    font-size: 12px + 4px;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="三-嵌套"><a href="#三-嵌套" class="headerlink" title="三. 嵌套"></a>三. 嵌套</h3><p><strong>标签嵌套</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// sass 样式</span><br><span class="line">div &#123;</span><br><span class="line">    color: #333;</span><br><span class="line">    a &#123;</span><br><span class="line">       font-size:14px; </span><br><span class="line">       &amp;:hover &#123;</span><br><span class="line">          text-decoration:underline;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">// 编译后css</span><br><span class="line">div &#123;</span><br><span class="line">    color: #333;</span><br><span class="line">&#125;</span><br><span class="line">div a &#123;</span><br><span class="line">    font-size:14px; </span><br><span class="line">&#125;</span><br><span class="line">div a:hover &#123;</span><br><span class="line">    text-decoration:underline;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>属性嵌套</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//sass 样式</span><br><span class="line">.fakeshadow &#123;</span><br><span class="line">  border: &#123;</span><br><span class="line">    style: solid;</span><br><span class="line">    left: &#123;</span><br><span class="line">      width: 4px;</span><br><span class="line">      color: #888;</span><br><span class="line">    &#125;</span><br><span class="line">    right: &#123;</span><br><span class="line">      width: 2px;</span><br><span class="line">      color: #ccc;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//css 编译后样式</span><br><span class="line">.fakeshadow &#123;</span><br><span class="line">  border-style: solid;</span><br><span class="line">  border-left-width: 4px;</span><br><span class="line">  border-left-color: #888;</span><br><span class="line">  border-right-width: 2px;</span><br><span class="line">  border-right-color: #ccc; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="四-注释"><a href="#四-注释" class="headerlink" title="四. 注释"></a>四. 注释</h3><p> sass有两种注释风格<br>标准css注释： /<em> 注释 </em>/， 会保留到编译后的文件中，压缩则删除<br>单行注释： // 注释<br>在标准注释 /<em>后面加入一个感叹号，表示重要注释，压缩模式也会保留注释，用于版权声明等。<br>/</em>! */(重要注释)</p>
+<h3 id="五-继承"><a href="#五-继承" class="headerlink" title="五. 继承"></a>五. 继承</h3><p>sass 中，选择器继承可以让选择器继承另一个选择器的所有样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// sass样式</span><br><span class="line">h1 &#123;</span><br><span class="line">    font-size:20px;</span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">    @extend h1;</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br><span class="line">// css编译后样式</span><br><span class="line">h1 &#123;</span><br><span class="line">    font-size:20px;</span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">    font-size:20px;</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>使用占位符选择器 % </strong><br>从sass3.2.0后，就可以定义占位选择器%，这个的优势在于，不调用不会有多余的css文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// sass样式</span><br><span class="line">%h1 &#123;</span><br><span class="line">    font-size:20px;</span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">    @extend %h1;</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br><span class="line">// css编译后样式</span><br><span class="line">div &#123;</span><br><span class="line">    font-size:20px;</span><br><span class="line">    color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="六-混合-mixin"><a href="#六-混合-mixin" class="headerlink" title="六. 混合(mixin)"></a>六. 混合(mixin)</h3><p>sass中使用@mixin声明混合，可以传递参数，参数名以$符号开始，多个参数以逗号分开，如果参数有多组值，那么在变量后面加三个点表示，如： $var…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">//sass 样式</span><br><span class="line">@mixin opacity($opacity:50) &#123;</span><br><span class="line">  opacity: $opacity / 100;</span><br><span class="line">  filter: alpha(opacity=$opacity);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.opacity&#123;</span><br><span class="line">  @include opacity;      //参数使用默认值  50/100 = 0.5</span><br><span class="line">&#125;</span><br><span class="line">.opacity-80&#123;</span><br><span class="line">  @include opacity(80); //传递参数  80/100 = 0.8</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//  css编译后样式</span><br><span class="line">.opacity&#123;</span><br><span class="line">  opacity: 0.5;</span><br><span class="line">  filter: alpha(opacity=50);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// ---------------------</span><br><span class="line"></span><br><span class="line">// 多参数</span><br><span class="line">@mixin center($width, $height) &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left:50%;</span><br><span class="line">    top:50%;</span><br><span class="line">    width:$width;</span><br><span class="line">    height:$height;</span><br><span class="line">    margin:(-$height / 2) 0 0 (-$width / 2);</span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">    @include center(200px, 100px);</span><br><span class="line">&#125;</span><br><span class="line">// css编译后样式</span><br><span class="line">div &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left:50%;</span><br><span class="line">    top:50%;</span><br><span class="line">    width:200px;</span><br><span class="line">    height:100px;</span><br><span class="line">    margin:-50px 0 0 -100px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// -------------------</span><br><span class="line"></span><br><span class="line">//多组值</span><br><span class="line">@mixin box-shadow($shadow...) &#123;</span><br><span class="line">    -webkit-box-shadow: $shadow;</span><br><span class="line">    box-shadow: $shadow;</span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">    @include box-shadow(0 1px 0 rgba(0,0,0,.4), 0 -1px 1px rgba(0,0,0,.4));</span><br><span class="line">&#125;</span><br><span class="line">// css编译后样式</span><br><span class="line">div &#123;</span><br><span class="line">    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.4), 0 -1px 1px rgba(0,0,0,.4);</span><br><span class="line">    box-shadow: 0 1px 0 rgba(0,0,0,.4), 0 -1px 1px rgba(0,0,0,.4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>@content</strong><br>在sass3.2.0中引入， 可以用来解决css3中 @meidia 或者 @keyframes 带来的问题。它可以使@mixin接受一整块样式，接收的样式从@content开始<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//sass 样式               </span><br><span class="line">@mixin max-screen($res)&#123;</span><br><span class="line">  @media only screen and ( max-width: $res )</span><br><span class="line">  &#123;</span><br><span class="line">    @content;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@include max-screen(480px) &#123;</span><br><span class="line">  body &#123; color: red &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//css 编译后样式</span><br><span class="line">@media only screen and (max-width: 480px) &#123;</span><br><span class="line">  body &#123; color: red &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>使用@content解决@keyframes关键帧的浏览器前缀问题</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// 初始化变量</span><br><span class="line">$browser: null;</span><br><span class="line">// 设置关键帧</span><br><span class="line">@mixin keyframes($name) &#123;</span><br><span class="line">    @-webkit-keyframes #&#123;$name&#125; &#123;</span><br><span class="line">        $browser: &apos;-webkit-&apos;; @content;</span><br><span class="line">    &#125;</span><br><span class="line">    @-moz-keyframes #&#123;$name&#125; &#123;</span><br><span class="line">        $browser: &apos;-moz-&apos;; @content;</span><br><span class="line">    &#125;</span><br><span class="line">    @-o-keyframes #&#123;$name&#125; &#123;</span><br><span class="line">        $browser: &apos;-o-&apos;; @content;</span><br><span class="line">    &#125;</span><br><span class="line">    @keyframes #&#123;$name&#125; &#123;</span><br><span class="line">        $browser: &apos;&apos;; @content;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 引入</span><br><span class="line">@include keyframes(scale) &#123;</span><br><span class="line">    100% &#123;</span><br><span class="line">        #&#123;$browser&#125;transform: scale(0.8);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// css编译后</span><br><span class="line">@-webkit-keyframes scale &#123;</span><br><span class="line">    -webkit-transform: scale(0.8);</span><br><span class="line">&#125;</span><br><span class="line">@-moz-keyframes scale  &#123;</span><br><span class="line">   -moz-transform: scale(0.8);</span><br><span class="line">&#125;</span><br><span class="line">@-o-keyframes scale  &#123;</span><br><span class="line">    -o-transform: scale(0.8);</span><br><span class="line">&#125;</span><br><span class="line">@keyframes scale  &#123;</span><br><span class="line">    transform: scale(0.8);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="七-颜色函数"><a href="#七-颜色函数" class="headerlink" title="七. 颜色函数"></a>七. 颜色函数</h3><p>sass提供了一些内置的颜色函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lighten(#cc3, 10%)　　  // #d6d65c</span><br><span class="line">darken(#cc3, 10%) 　　　// #a3a329</span><br><span class="line">grayscale(#cc3) 　　　　// #808080</span><br><span class="line">complement(#cc3) 　　　// #33c</span><br></pre></td></tr></table></figure></p>
+<h3 id="八-引入外部文件"><a href="#八-引入外部文件" class="headerlink" title="八. 引入外部文件"></a>八. 引入外部文件</h3><p>使用 @import 命令引入外部文件， 引入后，可使用外部文件中的变量等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;_base.scss&quot;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/23/sass基本使用/" data-id="cjr976hsl00035kuujjikxr4p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/23/语义化标签/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">语义化标签</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/23/sass基本使用/">sass基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/语义化标签/">语义化标签</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/flex布局总结/">flex布局总结</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wjh<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

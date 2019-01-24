@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>flex布局总结 | blog of Wjh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一. flex弹性布局的优点flex布局是css3新增的布局方式。虽然说理解起来稍难于其他的css属性，但是掌握了之后，在写css样式时简直是如虎添翼，开发效率能够极大的提高。目前，高版本浏览器已经完全支持flex布局的所有属性(在webkit内核的浏览器中使用时，必须加上-webkit-前缀)。个人认为，flex即是float的提升，又是float的拓展，float可以做到的事情，flex基本都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flex布局总结">
+<meta property="og:url" content="http://yoursite.com/2019/01/23/flex布局总结/index.html">
+<meta property="og:site_name" content="blog of Wjh">
+<meta property="og:description" content="一. flex弹性布局的优点flex布局是css3新增的布局方式。虽然说理解起来稍难于其他的css属性，但是掌握了之后，在写css样式时简直是如虎添翼，开发效率能够极大的提高。目前，高版本浏览器已经完全支持flex布局的所有属性(在webkit内核的浏览器中使用时，必须加上-webkit-前缀)。个人认为，flex即是float的提升，又是float的拓展，float可以做到的事情，flex基本都">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-23T11:26:58.031Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flex布局总结">
+<meta name="twitter:description" content="一. flex弹性布局的优点flex布局是css3新增的布局方式。虽然说理解起来稍难于其他的css属性，但是掌握了之后，在写css样式时简直是如虎添翼，开发效率能够极大的提高。目前，高版本浏览器已经完全支持flex布局的所有属性(在webkit内核的浏览器中使用时，必须加上-webkit-前缀)。个人认为，flex即是float的提升，又是float的拓展，float可以做到的事情，flex基本都">
+  
+    <link rel="alternate" href="/atom.xml" title="blog of Wjh" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">blog of Wjh</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-flex布局总结" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/flex布局总结/" class="article-date">
+  <time datetime="2019-01-23T10:59:23.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      flex布局总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一-flex弹性布局的优点"><a href="#一-flex弹性布局的优点" class="headerlink" title="一. flex弹性布局的优点"></a>一. flex弹性布局的优点</h4><p>flex布局是css3新增的布局方式。虽然说理解起来稍难于其他的css属性，但是掌握了之后，在写css样式时简直是如虎添翼，开发效率能够极大的提高。目前，高版本浏览器已经完全支持flex布局的所有属性(在webkit内核的浏览器中使用时，必须加上-webkit-前缀)。<br>个人认为，flex即是float的提升，又是float的拓展，float可以做到的事情，flex基本都能做到，而float实现flex的功能就比较复杂了关键的是flex实现这些样式，有时候只需要一两个命令就可以轻松解决。</p>
+<h4 id="二-基本概念"><a href="#二-基本概念" class="headerlink" title="二. 基本概念"></a>二. 基本概念</h4><p>使用flex布局的容器（flex container），它内部的元素自动成为flex项目（flex item）。容器拥有两根隐形的轴，水平的主轴（main axis），和竖直的交叉轴。主轴开始的位置，即主轴与左边框的交点，称为main start；主轴结束的位置称为main end；交叉轴开始的位置称为cross start；交叉轴结束的位置称为cross end。item按主轴或交叉轴排列，item在主轴方向上占据的宽度称为main size，在交叉轴方向上占据的宽度称为cross size。<br>此外，需注意使用flex容器内元素，即flex item的float，clear、vertical-align属性将失效。<br>item指的是flex的直接子元素，对子元素内的元素不生效，想要设置item内元素的样式，可以设置item的display为flex，以此类推。</p>
+<h4 id="三-容器属性详述"><a href="#三-容器属性详述" class="headerlink" title="三. 容器属性详述"></a>三. 容器属性详述</h4><p>注意：设置这些值，必须保证设置元素的display属性为flex。</p>
+<h5 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h5><ol>
+<li><p>flex-direction<br> 决定主轴的方向，即项目排列的方向，有四个可能的值：row(默认)|row-reverse|column|column-reverse   </p>
+<pre><code>* row:主轴为水平方向，项目沿主轴从左至右排列 
+
+* column：主轴为竖直方向，项目沿主轴从上至下排列 
+
+* row-reverse：主轴水平，项目从右至左排列，与row反向 
+
+* column-reverse：主轴竖直，项目从下至上排列，与column反向
+</code></pre></li>
+<li><p>flex-wrap<br>默认情况下，item排列在一条线上，即主轴上，flex-wrap决定当排列不下时是否换行以及换行的方式，可能的值nowrap(默认)|wrap|wrap-reverse</p>
+<pre><code>* nowrap：自动缩小项目，不换行
+
+* wrap：换行，且第一行在上方
+
+* wrap-reverse：换行，第一行在下面,从下往上排列
+</code></pre></li>
+<li><p>flex-flow<br> 是flex-direction和flex-wrap的简写形式，如：row wrap|column wrap-reverse等。默认值为row nowrap，即横向排列 不换行。</p>
+</li>
+<li><p>justify-content<br> 决定item在主轴上的对齐方式，可能的值有flex-start（默认），flex-end，center，space-between，space-around。当主轴沿水平方向时，具体含义为</p>
+<pre><code>* flex-start：左对齐
+
+* flex-end：右对齐
+
+* center：居中对齐
+
+* space- between：两端对齐
+
+* space-around：沿轴线均匀分布
+</code></pre></li>
+<li><p>align-items<br> 决定了item在交叉轴上的对齐方式，可能的值有flex-start|flex-end|center|baseline|stretch，当主轴水平时，其具体含义为</p>
+<pre><code>* flex-start：顶端对齐
+
+* flex-end：底部对齐
+
+* center：竖直方向上居中对齐
+
+* baseline：item第一行文字的底部对齐
+
+* stretch：当item未设置高度时，item将和容器等高对齐
+</code></pre></li>
+<li><p>align-content<br> 该属性定义了当有多根主轴时，即item不止一行时，多行在交叉轴轴上的对齐方式。注意当有多行时，定义了align-content后，align-items属性将失效。align-content可能值含义如下（假设主轴为水平方向）</p>
+<pre><code>* flex-start：左对齐
+* flex-end：右对齐
+* center：居中对齐
+* space- between：两端对齐
+* space-around：沿轴线均匀分布
+* stretch：各行将根据其flex-grow值伸展以充分占据剩余空间
+</code></pre></li>
+</ol>
+<h5 id="item的属性"><a href="#item的属性" class="headerlink" title="item的属性"></a>item的属性</h5><p>item的属性在item的style中设置。item共有如下六种属性</p>
+<ol>
+<li><p>order<br> order的值是整数，可以为负数，默认为0，整数越小，item排列越靠前.</p>
+</li>
+<li><p>flex-grow<br> 定义了当flex容器有多余空间时，item是否放大。默认值为0，即当有多余空间时也不放大；可能的值为整数，表示不同item的放大比例。</p>
+</li>
+<li><p>flex-shrink<br> 定义了当容器空间不足时，item是否缩小。默认值为1，表示当空间不足时，item自动缩小，其可能的值为整数，表示不同item的缩小比例。</p>
+</li>
+<li><p>flex-basis<br> 表示项目在主轴上占据的空间，默认值为auto。</p>
+</li>
+<li><p>flex<br> flex属性是flex-grow、flex-shrink和flex-basis三属性的简写总和。</p>
+</li>
+<li><p>align-self<br> align-self属性允许item有自己独特的在交叉轴上的对齐方式，它有六个可能的值。默认值为auto</p>
+<pre><code>* auto：和父元素align-self的值一致
+
+* flex-start：顶端对齐
+
+* flex-end：底部对齐
+
+* center：竖直方向上居中对齐
+
+* baseline：item第一行文字的底部对齐
+
+* stretch：当item未设置高度时，item将和容器等高对齐
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/23/flex布局总结/" data-id="cjr976hs700005kuu5dc6bi8r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/23/语义化标签/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          语义化标签
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/23/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/23/sass基本使用/">sass基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/语义化标签/">语义化标签</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/flex布局总结/">flex布局总结</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wjh<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
