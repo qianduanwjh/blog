@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>sass高级语法 | 王金华的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一. 函数在sass中可以定义函数，以@function开头 1234567891011$fontSize: 10px;@function pxTorem($px) &amp;#123;    @return $px / $fontSize * 1rem;&amp;#125;div &amp;#123;    font-size: pxTorem(16px);&amp;#125;// css编译后样式div &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass高级语法">
+<meta property="og:url" content="wjh.blog.com/2019/01/27/sass高级语法/index.html">
+<meta property="og:site_name" content="王金华的个人博客">
+<meta property="og:description" content="一. 函数在sass中可以定义函数，以@function开头 1234567891011$fontSize: 10px;@function pxTorem($px) &amp;#123;    @return $px / $fontSize * 1rem;&amp;#125;div &amp;#123;    font-size: pxTorem(16px);&amp;#125;// css编译后样式div &amp;#123;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-27T14:17:26.788Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sass高级语法">
+<meta name="twitter:description" content="一. 函数在sass中可以定义函数，以@function开头 1234567891011$fontSize: 10px;@function pxTorem($px) &amp;#123;    @return $px / $fontSize * 1rem;&amp;#125;div &amp;#123;    font-size: pxTorem(16px);&amp;#125;// css编译后样式div &amp;#123;">
+  
+    <link rel="alternate" href="/atom.xml" title="王金华的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">王金华的个人博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">欢迎访问</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="wjh.blog.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sass高级语法" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/27/sass高级语法/" class="article-date">
+  <time datetime="2019-01-27T14:16:36.000Z" itemprop="datePublished">2019-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sass高级语法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一-函数"><a href="#一-函数" class="headerlink" title="一. 函数"></a>一. 函数</h4><p><strong>在sass中可以定义函数，以@function开头</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$fontSize: 10px;</span><br><span class="line">@function pxTorem($px) &#123;</span><br><span class="line">    @return $px / $fontSize * 1rem;</span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">    font-size: pxTorem(16px);</span><br><span class="line">&#125;</span><br><span class="line">// css编译后样式</span><br><span class="line">div &#123;</span><br><span class="line">    font-size: 1.6rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="二-if条件判断"><a href="#二-if条件判断" class="headerlink" title="二. if条件判断"></a>二. if条件判断</h4><p><strong>@if用来做条件判断</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// sass样式</span><br><span class="line">$type: monster;</span><br><span class="line">div &#123;</span><br><span class="line">    @if $type == ocean &#123;</span><br><span class="line">        color: blue;</span><br><span class="line">    &#125; @else if $type == matador &#123;</span><br><span class="line">        color: red;</span><br><span class="line">    &#125; @else if $type == monster &#123;</span><br><span class="line">        color: green;</span><br><span class="line">    &#125; @else &#123;</span><br><span class="line">        color: black;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// css编译后样式</span><br><span class="line">div &#123;</span><br><span class="line">    color: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>三目判断</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if(true, 1px, 2px) =&gt; 1px</span><br><span class="line">if(false, 1px, 2px) =&gt; 2px</span><br></pre></td></tr></table></figure>
+<h4 id="三-循环语句"><a href="#三-循环语句" class="headerlink" title="三.循环语句"></a>三.循环语句</h4><p><strong>for循环</strong></p>
+<p><code>@for $var  from  &lt;start&gt;  to  &lt;end&gt;</code>。 $var 表示变量，start表示开始值，end表示结束值，两种形式的区别在于 through 包括 end 的值，to 不包括 end 值。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// sass样式</span><br><span class="line">@for $i from 1 to 4 &#123;</span><br><span class="line">    .item-#&#123;$i&#125; &#123;width: 2em * $i;&#125;</span><br><span class="line">&#125;</span><br><span class="line">// css编译后样式</span><br><span class="line">.item-1 &#123;</span><br><span class="line">    width: 2em;</span><br><span class="line">&#125;</span><br><span class="line">.item-2 &#123;</span><br><span class="line">    width: 4em;</span><br><span class="line">&#125;</span><br><span class="line">.item-3 &#123;</span><br><span class="line">    width: 6em;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>while循环</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// sass样式</span><br><span class="line">$i: 2;</span><br><span class="line">@while $i &gt; 0 &#123;</span><br><span class="line">    .item-#&#123;$i&#125; &#123;width: 2em * $i;&#125;</span><br><span class="line">    $i: $i - 1;</span><br><span class="line">&#125;</span><br><span class="line">// css编译后样式</span><br><span class="line">.item-2 &#123;</span><br><span class="line">  width: 4em;</span><br><span class="line">&#125;</span><br><span class="line">.item-1 &#123;</span><br><span class="line">  width: 2em;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>each循环</strong></p>
+<p>语法为@each <code>$var in &lt;list or map&gt;</code>。 其中$var表示变量，而list和map表示数据类型，sass3.3.0新加入多字段循环和map数据循环。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//sass 样式</span><br><span class="line">$animal-list: puma, sea-slug, egret;</span><br><span class="line">@each $animal in $animal-list &#123;</span><br><span class="line">  .#&#123;$animal&#125;-icon &#123;</span><br><span class="line">    background-image: url(&apos;/images/#&#123;$animal&#125;.png&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//css 编译后样式</span><br><span class="line">.puma-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/puma.png&apos;); </span><br><span class="line">&#125;</span><br><span class="line">.sea-slug-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/sea-slug.png&apos;); </span><br><span class="line">&#125;</span><br><span class="line">.egret-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/egret.png&apos;); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>多字段list数据循环</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//sass 样式</span><br><span class="line">$animal-data: (puma, black, default),(sea-slug, blue, pointer);</span><br><span class="line">@each $animal, $color, $cursor in $animal-data &#123;</span><br><span class="line">  .#&#123;$animal&#125;-icon &#123;</span><br><span class="line">    background-image: url(&apos;/images/#&#123;$animal&#125;.png&apos;);</span><br><span class="line">    border: 2px solid $color;</span><br><span class="line">    cursor: $cursor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//css 编译后样式</span><br><span class="line">.puma-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/puma.png&apos;);</span><br><span class="line">  border: 2px solid black;</span><br><span class="line">  cursor: default; </span><br><span class="line">&#125;</span><br><span class="line">.sea-slug-icon &#123;</span><br><span class="line">  background-image: url(&apos;/images/sea-slug.png&apos;);</span><br><span class="line">  border: 2px solid blue;</span><br><span class="line">  cursor: pointer; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>多字段map数据循环 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//sass 样式</span><br><span class="line">$headings: (h1: 2em, h2: 1.5em, h3: 1.2em);</span><br><span class="line">@each $header, $size in $headings &#123;</span><br><span class="line">  #&#123;$header&#125; &#123;</span><br><span class="line">    font-size: $size;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//css 编译后样式</span><br><span class="line">h1 &#123;</span><br><span class="line">  font-size: 2em; </span><br><span class="line">&#125;</span><br><span class="line">h2 &#123;</span><br><span class="line">  font-size: 1.5em; </span><br><span class="line">&#125;</span><br><span class="line">h3 &#123;</span><br><span class="line">  font-size: 1.2em; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="wjh.blog.com/2019/01/27/sass高级语法/" data-id="cjrezo25r0000xouu0rycsqur" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/23/sass基本使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">sass基本使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/27/sass高级语法/">sass高级语法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/sass基本使用/">sass基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/语义化标签/">语义化标签</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/flex布局总结/">flex布局总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 wjh<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
