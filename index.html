@@ -69,6 +69,79 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-webpack基本使用" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/27/webpack基本使用/" class="article-date">
+  <time datetime="2019-01-27T14:19:25.000Z" itemprop="datePublished">2019-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/27/webpack基本使用/">webpack基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-webpack的作用"><a href="#1-webpack的作用" class="headerlink" title="1.webpack的作用"></a>1.webpack的作用</h4><p>现在的前端网页功能丰富，特别是SPA（single page web application 单页应用）技术流行后，JavaScript的复杂度增加和需要一大堆依赖包，还需要解决SCSS，Less……新增样式的扩展写法的编译工作。所以现代化的前端已经完全依赖于WebPack的辅助了。 </p>
+<p>WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Sass，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。在3.0出现后，Webpack还肩负起了优化项目的责任。</p>
+<p>可以总结为三点：</p>
+<ul>
+<li>打包：可以把多个Javascript文件打包成一个文件，减少服务器压力和下载带宽。</li>
+<li>转换：把拓展语言转换成为普通的JavaScript，让浏览器顺利运行。</li>
+<li>优化：前端变的越来越复杂后，性能也会遇到问题，而WebPack也开始肩负起了优化和提升性能的责任。</li>
+</ul>
+<p>我们可以从下图再次了解一下WebPack的作用:</p>
+<p>在webpack看来一切都是模块！这就是它不可不说的优点，webpack本身只能打包js代码，但是通过合适的loader，可以将包括CSS，fonts以及图片等当作模块被处理。 </p>
+<h4 id="2-为什么要学习webpack？"><a href="#2-为什么要学习webpack？" class="headerlink" title="2.为什么要学习webpack？"></a>2.为什么要学习webpack？</h4><p>虽然目前最流行的前端三大框架(vue,react,angular)都有和自身框架依赖的webpack构建工具，可以直接构建出配置环境。 但是如果不真正了解webpack的使用，出现了问题就很难找到原因，所以学习webpack的使用很有必要。</p>
+<h4 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h4><p><strong>全局安装</strong></p>
+<p>webpack官方不推荐全局安装。这会将您项目中的 webpack 锁定到指定版本，并且在使用不同的 webpack 版本的项目中，可能会导致构建失败。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g webpack</span><br></pre></td></tr></table></figure>
+<p><strong>本地安装</strong></p>
+<p>本地安装之前要先初始化一个项目</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init </span><br><span class="line">npm init -y <span class="comment">//所有项目信息使用默认值</span></span><br></pre></td></tr></table></figure>
+<p>推荐本地安装，因为本地安装会让webpack工具跟着项目走，把项目给了其他人，其他人可以通过配置信息下载该项目对应版本的webpack。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack</span><br><span class="line"><span class="comment">// 这里的--save的作用是把安装信息存储到package.json文件中，高版本npm默认不加--save自动存储。-dev是在开发环境中使用这个包，在生产环境中并不使用。类似于vue，bootstrap和jquery等需要在生产环境中使用的包就不要使用-dev。</span></span><br></pre></td></tr></table></figure>
+<p><strong>查看版本</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webpack -v</span><br><span class="line"><span class="comment">// 如果没有显示版本号，说明安装失败</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-基本配置"><a href="#4-基本配置" class="headerlink" title="4.基本配置"></a>4.基本配置</h4><p>以下是一个常见的webpack配置，具体的要根据不同业务需求来配置。</p>
+<p><strong>package.json文件中的配置</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一般只需要配置这个文件中的scripts属性</span></span><br><span class="line"> <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span>,</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"webpack-dev-server --open"</span></span><br><span class="line">  &#125;,</span><br><span class="line"><span class="comment">// 属性build指的是自定义的打包命令，这个名字可以随便取，打包时使用命令npm run build即可，build中的	cross-env是跨平台使用的，使用前要先下载同名插件。NODE_ENV=prodution是检测环境变量的。</span></span><br><span class="line"><span class="comment">// 属性start也是自定义的，不过如果取名为start，那么在使用打包命令时，可以省略run(npm start即可)，这个属性的作用是实时打包修改内容，这也是打包工具的优质体验之一。在使用前需要先安装webpack-dev-server的同名插件，并在webpack.config.js中有相应的配置信息才可使用，在后面有提到。</span></span><br></pre></td></tr></table></figure>
+<p><strong>webpack.config.js文件中的常规配置</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个核心模块的作用主要为了使用模块中的__dirname属性，这个属性可以获取当前文件所在的目录的绝对路径</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="comment">// 引入打包html的插件，需要在plugins属性中配置打包的文件</span></span><br><span class="line"><span class="keyword">const</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">"html-webpack-plugin"</span>);</span><br><span class="line"><span class="comment">// 压缩css代码，减小体积，需要在plugins中配置</span></span><br><span class="line"><span class="keyword">const</span> miniCssExtractPlugin = <span class="built_in">require</span>(<span class="string">"mini-css-extract-plugin"</span>);</span><br><span class="line"><span class="comment">// css分离，不使用这个插件，则打包的css文件会以style标签的形式插入到页面的顶部，使用插件后会把css生成单独的文件</span></span><br><span class="line"><span class="keyword">const</span> optimizeCssAssetsWebpackPlugin = <span class="built_in">require</span>(<span class="string">"optimize-css-assets-webpack-plugin"</span>);</span><br><span class="line"><span class="comment">// 压缩js代码</span></span><br><span class="line"><span class="keyword">const</span> uglifyjsWebPackPlugin = <span class="built_in">require</span>(<span class="string">"uglifyjs-webpack-plugin"</span>);</span><br><span class="line"><span class="comment">// 我们使用到的图片，视频，字体图标等文件无法通过入口文件打包到输出文件中，这时候需要通过该插件来完成这些文件的迁移</span></span><br><span class="line"><span class="keyword">const</span> copyWebpackPlugin = <span class="built_in">require</span>(<span class="string">"copy-webpack-plugin"</span>);</span><br><span class="line"><span class="comment">// 检测环境变量</span></span><br><span class="line"><span class="keyword">const</span> devMode = process.env.NODE_ENV !== <span class="string">"production"</span>;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 打包入口，所有需要被打包的文件要引入到这个文件才能被打包</span></span><br><span class="line">    entry: <span class="string">"./src/main.js"</span>,</span><br><span class="line">    <span class="comment">//"html-webpack-plugin"的配置项，指定html文件打包的位置</span></span><br><span class="line">    devServer: &#123;</span><br><span class="line">        contentBase:<span class="string">"./dist"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 指定输出文件的位置</span></span><br><span class="line">    output:&#123;</span><br><span class="line">        path: path.join(__dirname, <span class="string">"./dist/"</span>),</span><br><span class="line">        filename:<span class="string">'bundle.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>:&#123;</span><br><span class="line">        <span class="comment">// 配置加载规则</span></span><br><span class="line">        rules:[</span><br><span class="line">            <span class="comment">// 当打包css或者sass文件时使用use中的loader来处理，test的作用是使用正则匹配这些文件</span></span><br><span class="line">            <span class="comment">// 注意:三个loader的顺序不能乱，并且需要安装这些loader，如果是sass文件还需要安装node-sass</span></span><br><span class="line">            &#123;</span><br><span class="line">                test:<span class="regexp">/\.(c|sa|sc)ss$/</span>,</span><br><span class="line">                use:[<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>, <span class="string">"sass-loader"</span>]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">             <span class="comment">// 处理url()中用到的文件，使用的loader为file-loader</span></span><br><span class="line">                test:<span class="regexp">/\.(jpg|png|gif|svg)$/</span>,</span><br><span class="line">                use:[<span class="string">'file-loader'</span>]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// webpack本身就支持js的打包，这里的babel-loader的作用是将js文件的es6语法转换成</span></span><br><span class="line">               <span class="comment">// es5语法</span></span><br><span class="line">                test:<span class="regexp">/\.m?js$/</span>,</span><br><span class="line">                <span class="comment">// 这个属性的意思是转码时不转这些目录下的js文件</span></span><br><span class="line">                exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">                use: &#123;</span><br><span class="line">                    loader: <span class="string">"babel-loader"</span>,</span><br><span class="line">                    options: &#123;</span><br><span class="line">                        <span class="comment">// 指定转码规则</span></span><br><span class="line">                        presets:[<span class="string">"@babel/preset-env"</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    optimization: &#123;</span><br><span class="line">      <span class="comment">// 压缩js代码的配置</span></span><br><span class="line">        minimizer:[</span><br><span class="line">            <span class="keyword">new</span> uglifyjsWebPackPlugin(&#123;</span><br><span class="line">                cache:<span class="literal">true</span>,</span><br><span class="line">                parallel:<span class="literal">true</span>,</span><br><span class="line">                sourceMap:<span class="literal">true</span></span><br><span class="line">            &#125;),</span><br><span class="line">            <span class="comment">// css文件分离的配置</span></span><br><span class="line">            <span class="keyword">new</span> optimizeCssAssetsWebpackPlugin(&#123;&#125;)</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[</span><br><span class="line">        <span class="comment">// html的打包位置</span></span><br><span class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">            template:<span class="string">'./src/index.html'</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="comment">// 压缩css代码配置</span></span><br><span class="line">        <span class="keyword">new</span> miniCssExtractPlugin(&#123;</span><br><span class="line">            filename: devMode? <span class="string">"[name].css"</span>:<span class="string">"[name].[hash].css"</span>,</span><br><span class="line">            chunkFilename: devMode? <span class="string">"[id].css"</span>:<span class="string">"[id].[hash].css"</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="comment">// 以下都为迁移文件的配置，from指的是起始位置，to指的是迁移目标位置，因为默认为dist文件夹</span></span><br><span class="line">        <span class="comment">// 所以dist可以省略</span></span><br><span class="line">        <span class="keyword">new</span> copyWebpackPlugin([</span><br><span class="line">            &#123;<span class="attr">from</span>:<span class="string">"src/images"</span>,<span class="attr">to</span>:<span class="string">"images"</span>&#125;</span><br><span class="line">        ]),</span><br><span class="line">        <span class="keyword">new</span> copyWebpackPlugin([</span><br><span class="line">            &#123;<span class="attr">from</span>:<span class="string">"src/video"</span>,<span class="attr">to</span>:<span class="string">"video"</span>&#125;</span><br><span class="line">        ]),</span><br><span class="line">        <span class="keyword">new</span> copyWebpackPlugin([</span><br><span class="line">            &#123;<span class="attr">from</span>:<span class="string">"src/favicon.ico"</span>,<span class="attr">to</span>:<span class="string">"favicon.ico"</span>&#125;</span><br><span class="line">        ]),</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-其他常用配置"><a href="#5-其他常用配置" class="headerlink" title="5.其他常用配置"></a>5.其他常用配置</h4><p>除了以上的其他常用配置，具体使用查看官网文档，例如：</p>
+<ul>
+<li><p><strong>babel-plofill</strong> 转换js代码中低版本浏览器不支持的一些api。</p>
+</li>
+<li><p><strong>babel-plugin-transform-runtime</strong>  <strong>babel-runtime</strong>  这两个插件一般同时使用，目的是处理重复代码，缩小体积。</p>
+</li>
+<li><p><strong>vue-tempalte-compiler</strong>  <strong>babel-loader</strong>  用于打包js，后者依赖于前者。</p>
+</li>
+<li><p>加载第三方包时和热更新。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="wjh.blog.com/2019/01/27/webpack基本使用/" data-id="cjrezr32c00022kuuhgi898hk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-sass高级语法" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/27/sass高级语法/" class="article-date">
@@ -112,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="wjh.blog.com/2019/01/27/sass高级语法/" data-id="cjrezo25r0000xouu0rycsqur" class="article-share-link">Share</a>
+      <a data-url="wjh.blog.com/2019/01/27/sass高级语法/" data-id="cjrezr32f00042kuuu8qbkn6z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="wjh.blog.com/2019/01/23/sass基本使用/" data-id="cjrezo2600001xouu9xa95hhl" class="article-share-link">Share</a>
+      <a data-url="wjh.blog.com/2019/01/23/sass基本使用/" data-id="cjrezr32a00012kuu4xcsbgc4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="wjh.blog.com/2019/01/23/语义化标签/" data-id="cjrezo2650003xouu7f5avjp1" class="article-share-link">Share</a>
+      <a data-url="wjh.blog.com/2019/01/23/语义化标签/" data-id="cjrezr32e00032kuuxje7area" class="article-share-link">Share</a>
       
       
     </footer>
@@ -356,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="wjh.blog.com/2019/01/23/flex布局总结/" data-id="cjrezo2630002xouu64rein5y" class="article-share-link">Share</a>
+      <a data-url="wjh.blog.com/2019/01/23/flex布局总结/" data-id="cjrezr32200002kuupm4s6oig" class="article-share-link">Share</a>
       
       
     </footer>
@@ -395,6 +468,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/01/27/webpack基本使用/">webpack基本使用</a>
+          </li>
         
           <li>
             <a href="/2019/01/27/sass高级语法/">sass高级语法</a>
